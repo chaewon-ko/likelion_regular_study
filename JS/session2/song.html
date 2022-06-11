@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .blue{
+            width: 0px;
+            height: 5px;
+            background-color: rgb(92, 100, 254);      
+        }
+        .lyrics{
+            width: 250px;
+            height: 150px;
+            overflow-y: scroll;
+            background-color: rgb(192, 224, 255);
+        }
+    </style>
+    <div class = "blue"></div>
+    <div class="lyrics">
+        <p>이듬해 질 녘 어쩌구</p>
+    </div>
+    <script>
+        let bar = document.querySelector(".blue");
+        let lyric = document.querySelector(".lyrics");
+
+        lyric.addEventListener("scroll", function(){
+            let scrollTop = lyric.scrollTop;
+            let scrollHeight = lyric.scrollHeight - lyric.clientHeight;
+            let per = scrollTop / scrollHeight;
+            bar.style.width = `${per*250}px`;
+        });
+    </script>
+</body>
+</html>
